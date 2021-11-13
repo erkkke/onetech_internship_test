@@ -32,9 +32,6 @@ func Difficulty(url string) float64 {
 	}
 
 	resultString := doc.Find("body.nomargin").Find("center").Find("i").Text()
-	if err != nil {
-		return -1
-	}
 	resultString = regexp.MustCompile("(\\d+%)").FindString(resultString)
 
 	result, err := strconv.ParseFloat(resultString[:len(resultString)-1], 64)
